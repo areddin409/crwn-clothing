@@ -12,10 +12,7 @@ import CheckoutPage from './pages/checkout/checkout.component';
 
 import Header from './components/header/header.component';
 
-import {
-  auth,
-  createUserProfileDocument,
-} from './firebase/firebase.utils';
+import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
 import { setCurrentUser } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selectors';
@@ -28,19 +25,17 @@ class App extends Component {
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
-        const userRef = createUserProfileDocument(userAuth);
+        const userRef = await createUserProfileDocument(userAuth);
 
-        //allows to check if a document exists at this query using .exists property which return a bool
-        //can also get the actual properties on the object by calling .data() which returns a JSON object of the document
-        (await userRef).onSnapshot((snapShot) => {
+        userRef.onSnapshot((snapShot) => {
           setCurrentUser({
             id: snapShot.id,
             ...snapShot.data(),
           });
         });
       }
+      
       setCurrentUser(userAuth);
-    
     });
   }
 
