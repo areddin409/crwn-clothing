@@ -29,16 +29,6 @@ export function* fetchCollectionsAsync() {
   } catch (err) {
     yield put(fetchCollectionsFailure(err.message));
   }
-
-  // collectionRef
-  //   .get()
-  //   .then((snapshot) => {
-  //     const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
-  //     dispatch(fetchCollectionsSuccess(collectionsMap));
-  //   })
-  //   .catch((err) => {
-  //     dispatch(fetchCollectionsFailure(err.message));
-  //   });
 }
 
 //takeEvery -creates a non blocking call (doesn't pause the javascript)
