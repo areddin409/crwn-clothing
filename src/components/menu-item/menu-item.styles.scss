@@ -19,6 +19,8 @@
 
     & .content {
       opacity: 0.9;
+      transform: scale(0.9);
+      transition: transform 4s cubic-bezier(0.25, 0.45, 0.45, 0.95);
     }
   }
 
