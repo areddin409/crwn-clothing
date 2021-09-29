@@ -24,8 +24,9 @@
     color: white;
 
     &:hover {
-      background-color: #3b78dc;
-      border: none;
+      background-color: white;
+      color: #4285f4;
+      border: 1px solid #4285f4;
     }
   }
 }
