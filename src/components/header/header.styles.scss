@@ -10,6 +10,12 @@
     height: 100%;
     width: 50px;
     padding: 25px;
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+      transition: opacity 0.5s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+    }
   }
 
   .options {
@@ -21,6 +27,13 @@
 
     .option {
       padding: 10px 15px;
+      cursor: pointer;
+      opacity: 0.5;
+
+      &:hover {
+        opacity: 1;
+        transition: all 0.5s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+      }
     }
   }
 }
