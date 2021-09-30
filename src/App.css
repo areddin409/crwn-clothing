@@ -1,6 +1,9 @@
+* {
+  margin: 0;
+}
 body {
   font-family: 'Open Sans Condensed';
-  padding: 20px 45px;
+  padding: 10px 45px;
 }
 
 a {
