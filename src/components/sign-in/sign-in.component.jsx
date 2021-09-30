@@ -5,15 +5,20 @@ import './sign-in.styles.scss';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 
-import { signInWithGoogle } from '../../firebase/firebase.utils';
+import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
 
 const SignIn = () => {
   const [login, setLogin] = useState({ email: '', password: '' });
 
-  const handleSumbit = (event) => {
+  const handleSumbit = async (event) => {
     event.preventDefault();
-
-    setLogin({ email: '', password: '' });
+    const { email, password } = login;
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      setLogin({ email: '', password: '' });
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   const handleChange = (event) => {
